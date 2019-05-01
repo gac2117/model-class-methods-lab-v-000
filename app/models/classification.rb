@@ -7,7 +7,8 @@ class Classification < ActiveRecord::Base
   end
 
   def self.longest
-    binding.pry
-    boats = Boat.maximum(:length)
+    
+    boat = Boat.find_by(length: Boat.maximum(:length))
+    boat.classifications
   end
 end
