@@ -8,6 +8,7 @@ class Classification < ActiveRecord::Base
 
   def self.longest
     binding.pry
-    Classification.includes(:boats).maximum("length")
+    boat_length = Classification.includes(:boats).maximum("length")
+    Boat.where("length == boat_id")
   end
 end
