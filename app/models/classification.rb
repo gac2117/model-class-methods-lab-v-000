@@ -7,6 +7,6 @@ class Classification < ActiveRecord::Base
   end
 
   def self.longest
-    Boat.where(length: Classification.includes(:boats).maximum("length"))
+    boat = Boat.where(length: Classification.includes(:boats).maximum("length"))
   end
 end
